@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "768px",
+      "wideSize": "1200px"
+    },
+    "color": {
+      "defaultPalette": false,
+      "palette": [
+        {
+          "slug": "primary",
+          "name": "Primary",
+          "color": "#0f172a"
+        },
+        {
+          "slug": "accent",
+          "name": "Accent",
+          "color": "#2563eb"
+        },
+        {
+          "slug": "muted",
+          "name": "Muted",
+          "color": "#64748b"
+        },
+        {
+          "slug": "surface",
+          "name": "Surface",
+          "color": "#f8fafc"
+        }
+      ]
+    },
+    "spacing": {
+      "units": ["px", "rem", "%", "vw", "vh"],
+      "spacingSizes": [
+        {"slug": "xs", "size": "0.5rem", "name": "XS"},
+        {"slug": "sm", "size": "1rem", "name": "SM"},
+        {"slug": "md", "size": "1.5rem", "name": "MD"},
+        {"slug": "lg", "size": "2rem", "name": "LG"},
+        {"slug": "xl", "size": "3rem", "name": "XL"}
+      ]
+    },
+    "typography": {
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "fontFamily": "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
+          "name": "Sans",
+          "slug": "sans"
+        }
+      ]
+    }
+  }
+}

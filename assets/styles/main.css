@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+:root {
+  --tp-radius: 0.75rem;
+}
+
+body {
+  margin: 0;
+}
+
+.prose a {
+  color: #2563eb;
+}
+
+.prose a:hover {
+  color: #1d4ed8;
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/example",
+  "title": "Example",
+  "description": "Example ACF block for the TailPress boilerplate.",
+  "category": "widgets",
+  "icon": "cover-image",
+  "keywords": ["example", "tailpress", "acf"],
+  "acf": {
+    "mode": "preview"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true
+  }
+}
