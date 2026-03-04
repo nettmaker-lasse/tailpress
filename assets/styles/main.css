@@ -322,3 +322,68 @@ html:not(.js) .sub-menu[hidden] {
 .prose a:hover {
   color: #1d4ed8;
 }
+
+.site-footer {
+  background: #fff;
+}
+
+.footer-nav {
+  margin: 0 auto;
+}
+
+.footer-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+}
+
+.footer-menu a {
+  display: inline-block;
+  text-decoration: none;
+  color: #475569;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.footer-menu a:hover {
+  color: #0f172a;
+}
+
+.footer-socials {
+  list-style: none;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  color: #475569;
+}
+
+.footer-social-link:hover {
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+.footer-social-link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentcolor;
+}
+
+.footer-copy {
+  margin-top: 1.75rem;
+}

@@ -26,6 +26,21 @@ add_action('tailpress/init', static function (): void {
         wp_mkdir_p($acf_json_path);
     }
 
+    add_action('acf/init', static function (): void {
+        if (!function_exists('acf_add_options_sub_page')) {
+            return;
+        }
+
+        acf_add_options_sub_page([
+            'page_title' => __('Theme Settings', 'tailpress'),
+            'menu_title' => __('Theme Settings', 'tailpress'),
+            'menu_slug' => 'tailpress-theme-settings',
+            'parent_slug' => 'themes.php',
+            'capability' => 'edit_theme_options',
+            'redirect' => false,
+        ]);
+    });
+
     add_filter('acf/settings/save_json', static function () use ($acf_json_path): string {
         return $acf_json_path;
     });

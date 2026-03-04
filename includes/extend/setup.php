@@ -19,4 +19,19 @@ add_action('tailpress/init', static function (): void {
 
         add_editor_style('dist/styles/main.min.css');
     });
+
+    add_action('admin_menu', static function (): void {
+        remove_submenu_page('themes.php', 'theme-editor.php');
+    }, 999);
+
+    add_action('admin_init', static function (): void {
+        global $pagenow;
+
+        if ($pagenow !== 'theme-editor.php') {
+            return;
+        }
+
+        wp_safe_redirect(admin_url('themes.php'));
+        exit;
+    });
 });
