@@ -97,6 +97,7 @@ function watchFiles() {
   watch('assets/scripts/**/*.js', scripts);
   watch('blocks/*/*.scss', blockStylesTask);
   watch('blocks/*/*.js', blockScriptsTask);
+  watch(['**/*.php', 'blocks/*/*.json'], styles);
 }
 
 const build = parallel(styles, scripts, blockStylesTask, blockScriptsTask);
