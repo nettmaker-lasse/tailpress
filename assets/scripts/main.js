@@ -1,5 +1,57 @@
 (() => {
   document.documentElement.classList.add('js');
+  const html = document.documentElement;
+  const themeToggle = document.querySelector('[data-theme-toggle]');
+  const themeKey = 'tailpress-theme';
+
+  function getPreferredTheme() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+
+    return 'light';
+  }
+
+  function applyTheme(theme) {
+    const resolvedTheme = theme === 'dark' ? 'dark' : 'light';
+    html.classList.toggle('dark', resolvedTheme === 'dark');
+
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-pressed', resolvedTheme === 'dark' ? 'true' : 'false');
+      themeToggle.setAttribute(
+        'aria-label',
+        resolvedTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+      );
+    }
+  }
+
+  function setTheme(theme) {
+    applyTheme(theme);
+    try {
+      window.localStorage.setItem(themeKey, theme);
+    } catch (error) {
+      // Ignore storage errors from private browsing restrictions.
+    }
+  }
+
+  let initialTheme = getPreferredTheme();
+  try {
+    const storedTheme = window.localStorage.getItem(themeKey);
+    if (storedTheme === 'dark' || storedTheme === 'light') {
+      initialTheme = storedTheme;
+    }
+  } catch (error) {
+    // Ignore storage errors from private browsing restrictions.
+  }
+
+  applyTheme(initialTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = html.classList.contains('dark') ? 'light' : 'dark';
+      setTheme(nextTheme);
+    });
+  }
 
   const siteMenu = document.getElementById('site-menu');
   const menuToggle = document.querySelector('.menu-toggle');

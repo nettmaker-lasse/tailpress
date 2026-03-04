@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --tp-radius: 0.75rem;
@@ -14,7 +15,8 @@ body.menu-open {
 
 .menu-toggle,
 .menu-close,
-.submenu-toggle {
+.submenu-toggle,
+.theme-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -27,13 +29,19 @@ body.menu-open {
 
 .menu-toggle,
 .menu-close {
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 40px;
+  height: 40px;
+}
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
 }
 
 .menu-toggle:focus-visible,
 .menu-close:focus-visible,
 .submenu-toggle:focus-visible,
+.theme-toggle:focus-visible,
 .site-menu-list a:focus-visible {
   outline: 2px solid #0f172a;
   outline-offset: 2px;
@@ -74,6 +82,31 @@ body.menu-open {
 
 .menu-close-icon::after {
   transform: rotate(-45deg);
+}
+
+.theme-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+.theme-toggle-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.theme-icon-moon {
+  display: none;
+}
+
+.dark .theme-icon-sun {
+  display: none;
+}
+
+.dark .theme-icon-moon {
+  display: block;
 }
 
 .site-menu-overlay {
@@ -165,6 +198,35 @@ body.menu-open {
 .site-menu-list .sub-menu a {
   font-size: 0.9rem;
   color: #475569;
+}
+
+.dark .menu-toggle,
+.dark .menu-close,
+.dark .submenu-toggle,
+.dark .theme-toggle {
+  border-color: #334155;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.dark .site-menu-panel {
+  background: #020617;
+}
+
+.dark .site-menu-header {
+  border-bottom-color: #1e293b;
+}
+
+.dark .site-menu-list {
+  color: #cbd5e1;
+}
+
+.dark .site-menu-list .sub-menu {
+  border-left-color: #1e293b;
+}
+
+.dark .site-menu-list .sub-menu a {
+  color: #94a3b8;
 }
 
 .site-menu-list .sub-menu .sub-menu {
@@ -298,6 +360,25 @@ html:not(.js) .sub-menu[hidden] {
     color: #0f172a;
   }
 
+  .dark .site-menu-list {
+    color: #cbd5e1;
+  }
+
+  .dark .site-menu-list .sub-menu {
+    border-color: #334155;
+    background: #0f172a;
+    box-shadow: 0 10px 26px rgb(2 6 23 / 50%);
+  }
+
+  .dark .site-menu-list .sub-menu a {
+    color: #cbd5e1;
+  }
+
+  .dark .site-menu-list .sub-menu a:hover {
+    background: #1e293b;
+    color: #f8fafc;
+  }
+
   .site-menu-list > .menu-item-has-children:hover > .sub-menu,
   .site-menu-list > .menu-item-has-children:focus-within > .sub-menu,
   .site-menu-list .sub-menu .menu-item-has-children:hover > .sub-menu,
@@ -327,6 +408,10 @@ html:not(.js) .sub-menu[hidden] {
   background: #fff;
 }
 
+.dark .site-footer {
+  background: #020617;
+}
+
 .footer-nav {
   margin: 0 auto;
 }
@@ -353,6 +438,14 @@ html:not(.js) .sub-menu[hidden] {
   color: #0f172a;
 }
 
+.dark .footer-menu a {
+  color: #94a3b8;
+}
+
+.dark .footer-menu a:hover {
+  color: #f8fafc;
+}
+
 .footer-socials {
   list-style: none;
   margin: 1.75rem 0 0;
@@ -376,6 +469,15 @@ html:not(.js) .sub-menu[hidden] {
 .footer-social-link:hover {
   color: #0f172a;
   background: #f8fafc;
+}
+
+.dark .footer-social-link {
+  color: #94a3b8;
+}
+
+.dark .footer-social-link:hover {
+  color: #f8fafc;
+  background: #1e293b;
 }
 
 .footer-social-link svg {

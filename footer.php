@@ -7,7 +7,7 @@
  */
 ?>
 </main>
-<footer class="site-footer mt-auto border-t border-slate-200 bg-white">
+<footer class="site-footer mt-auto border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
 	<div class="mx-auto w-full max-w-6xl px-6 py-12 text-center">
 		<nav class="footer-nav" aria-label="<?php esc_attr_e('Footer navigation', 'tailpress'); ?>">
 			<?php
@@ -55,7 +55,7 @@
 			</ul>
 		<?php endif; ?>
 
-		<p class="footer-copy text-sm text-slate-600">&copy; <?php echo esc_html(date_i18n('Y')); ?> <?php bloginfo('name'); ?>. <?php esc_html_e('All rights reserved.', 'tailpress'); ?></p>
+		<p class="footer-copy text-sm text-slate-600 dark:text-slate-400">&copy; <?php echo esc_html(date_i18n('Y')); ?> <?php bloginfo('name'); ?>. <?php esc_html_e('All rights reserved.', 'tailpress'); ?></p>
 	</div>
 </footer>
 <?php wp_footer(); ?>
