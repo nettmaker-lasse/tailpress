@@ -50,7 +50,7 @@
 						?>
 					</div>
 				</nav>
-				<button type="button" class="theme-toggle hidden lg:inline-flex" data-theme-toggle aria-pressed="false">
+				<button type="button" class="theme-toggle hidden lg:inline-flex cursor-pointer" data-theme-toggle aria-pressed="false">
 					<span class="sr-only"><?php esc_html_e('Toggle dark mode', 'tailpress'); ?></span>
 					<span class="theme-toggle-icon" aria-hidden="true">
 						<svg class="theme-icon-sun" viewBox="0 0 28 28" fill="none">

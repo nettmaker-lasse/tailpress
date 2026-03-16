@@ -38,6 +38,10 @@ body.menu-open {
   height: 40px;
 }
 
+.submenu-toggle {
+  border: 0;
+}
+
 .menu-toggle:focus-visible,
 .menu-close:focus-visible,
 .submenu-toggle:focus-visible,
