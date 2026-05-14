@@ -41,6 +41,43 @@ if (!function_exists('tailpress_get_dist_asset')) {
     }
 }
 
+if (!function_exists('tailpress_get_theme_asset')) {
+    /**
+     * Resolve theme asset path and URI.
+     *
+     * @return array{path:string,uri:string,version:string}|null
+     */
+    function tailpress_get_theme_asset(string $relative_path): ?array
+    {
+        $path = TAILPRESS_PATH . '/' . ltrim($relative_path, '/');
+
+        if (!file_exists($path)) {
+            return null;
+        }
+
+        return [
+            'path' => $path,
+            'uri' => tailpress_asset_path_to_uri($path),
+            'version' => tailpress_asset_version($path),
+        ];
+    }
+}
+
+if (!function_exists('tailpress_get_inline_svg')) {
+    function tailpress_get_inline_svg(string $relative_path): string
+    {
+        $asset = tailpress_get_theme_asset($relative_path);
+
+        if ($asset === null) {
+            return '';
+        }
+
+        $svg = file_get_contents($asset['path']);
+
+        return is_string($svg) ? $svg : '';
+    }
+}
+
 if (!function_exists('tailpress_template_router')) {
     /**
      * Load the most specific template candidate for the current query context.
